@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="tr" data-costume="gold">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title data-i18n="siteTitle">Sabit İnce | Şair, Yazar, Gazeteci & Bestekâr (Resmî Portalı)</title>
+  <meta name="description" content="Sabit İnce resmî çok dilli külliyatı, şiir kütüphanesi, belgeleri, müzikleri, fotoğrafları, Altın Kalem Ödüllü eserleri ve yönetim paneli.">
+
+  <!-- Fonts & Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- SITE HEADER -->
+  <header class="site-header">
+    <div class="container header-container">
+      <a href="#hero" class="brand-logo">
+        <div class="brand-symbol">Sİ</div>
+        <div class="brand-text">
+          <span class="brand-name" data-i18n="brandName">Sabit İnce</span>
+          <span class="brand-title" data-i18n="brandSub">Şair & Yazar</span>
+        </div>
+      </a>
+
+      <nav>
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="#hero" class="nav-link active" data-i18n="navHome">Anasayfa</a></li>
+          <li><a href="#bio" class="nav-link" data-i18n="navBio">Biyografi</a></li>
+          <li><a href="#awards" class="nav-link">Ödüller</a></li>
+          <li><a href="#poetry" class="nav-link" data-i18n="navPoetry">Şiirler</a></li>
+          <li><a href="#books" class="nav-link" data-i18n="navBooks">Kitap & Belgeler</a></li>
+          <li><a href="#audio" class="nav-link" data-i18n="navAudio">Müzikler</a></li>
+          <li><a href="#media" class="nav-link" data-i18n="navMedia">Galeri & Video</a></li>
+          <li><a href="#journalism" class="nav-link" data-i18n="navJournalism">Yazılar</a></li>
+          <li><a href="#guestbook" class="nav-link" data-i18n="navGuestbook">Ziyaretçi Defteri</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <!-- Multilingual Language Selector (TR, EN, DE, FR, RU, AR) -->
+        <select id="lang-selector" class="lang-select" onchange="changeLanguage(this.value)" title="Language">
+          <option value="tr">🇹🇷 TR</option>
+          <option value="en">🇬🇧 EN</option>
+          <option value="de">🇩🇪 DE</option>
+          <option value="fr">🇫🇷 FR</option>
+          <option value="ru">🇷🇺 RU</option>
+          <option value="ar">🇸🇦 AR</option>
+        </select>
+
+        <!-- Theme Costume Customizer Selector -->
+        <select id="costume-selector" class="lang-select" onchange="changeCostumeTheme(this.value)" title="Costume / Theme">
+          <option value="gold">✨ Koyu Altın & Kadife</option>
+          <option value="burgundy">👑 Osmanlı Bordo</option>
+          <option value="blue">🌊 Ege Mavisi & Mermer</option>
+          <option value="emerald">🌿 Zümrüt Tasavvuf</option>
+          <option value="cyber">🔮 Siber Edebiyat</option>
+          <option value="light">🏛️ Aydınlık Kütüphane</option>
+        </select>
+
+        <button class="btn-primary" onclick="openAdminModal()">
+          <i class="fas fa-cog"></i> <span data-i18n="navAdmin">Yönetim Paneli</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero-section" id="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="hero-subtitle">
+          <i class="fas fa-award"></i> 2018 Altın Kalem Ödüllü Yazar • ANASAN Genel Başkanı
+        </div>
+        <h1 class="hero-title">
+          <span data-i18n="heroTitle">Anadolu'nun Yanık Sesi, </span>
+          <span class="text-gold" data-i18n="heroTitleHighlight">Gönül Kalemi</span>
+        </h1>
+        <p class="hero-bio-short" data-i18n="heroDesc">
+          Sabit İnce; şiirleri, besteleri, antolojileri, gazetecilik yılları ve ANASAN Genel Başkanlığıyla Türk edebiyatına ve halk kültürüne ömrünü adamış ozan ve yazardır.
+        </p>
+
+        <div class="pen-names">
+          <span class="pen-name-tag"><i class="fas fa-pen-nib"></i> Garip</span>
+          <span class="pen-name-tag"><i class="fas fa-pen-nib"></i> Türkmenoğlu İnce</span>
+          <span class="pen-name-tag"><i class="fas fa-pen-nib"></i> Âşık İnce</span>
+          <span class="pen-name-tag"><i class="fas fa-music"></i> 40+ Beste & Türkü</span>
+          <span class="pen-name-tag"><i class="fas fa-trophy"></i> Altın Kalem Ödüllü</span>
+        </div>
+
+        <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+          <a href="#poetry" class="btn-primary" data-i18n="btnDiscoverPoetry">Şiirleri Keşfet</a>
+          <a href="#audio" class="btn-outline" data-i18n="btnListenMusic">Besteleri Dinle</a>
+          <button class="btn-outline" onclick="openAdminModal()">
+            <i class="fas fa-plus-circle"></i> <span data-i18n="btnAdminPanel">İçerik Ekle</span>
+          </button>
+        </div>
+      </div>
+
+      <div style="text-align:center;">
+        <div class="glass-card" style="padding:2.5rem; display:inline-block; border-radius:30px; box-shadow:var(--shadow-glow);">
+          <svg viewBox="0 0 200 200" style="width:220px; height:220px;">
+            <circle cx="100" cy="100" r="90" stroke="var(--accent-gold-light)" stroke-width="4" fill="none" opacity="0.8"/>
+            <path d="M100 35C75 35 55 55 55 80C55 105 75 125 100 125C125 125 145 105 145 80C145 55 125 35 100 35Z" fill="var(--bg-tertiary)"/>
+            <path d="M40 165C40 135 65 120 100 120C135 120 160 135 160 165" stroke="var(--accent-gold-light)" stroke-width="6"/>
+          </svg>
+          <h2 style="font-family:var(--font-heading); font-size:1.8rem; margin-top:1rem;">Sabit İnce</h2>
+          <p style="font-size:0.9rem; color:var(--accent-gold-light);">Nevşehir Kozaklı Gerce, 1954</p>
+          <p style="font-size:0.8rem; color:var(--text-muted); margin-top:0.25rem;">sabitince.webnode.com.tr & ANASAN Arşivi</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STAT COUNTERS BAR -->
+  <section class="counters-bar" id="counters">
+    <div class="container counters-grid">
+      <div class="counter-card">
+        <i class="fas fa-users counter-icon"></i>
+        <div class="counter-number" id="counter-visitors">0</div>
+        <div class="counter-label" data-i18n="statsVisitors">Toplam Ziyaretçi</div>
+      </div>
+      <div class="counter-card">
+        <i class="fas fa-book-open counter-icon"></i>
+        <div class="counter-number" id="counter-poems-read">0</div>
+        <div class="counter-label" data-i18n="statsReaders">Okur Etkileşimi</div>
+      </div>
+      <div class="counter-card">
+        <i class="fas fa-music counter-icon"></i>
+        <div class="counter-number" id="counter-audio-listened">0</div>
+        <div class="counter-label" data-i18n="statsCompositions">Dinlenen Beste</div>
+      </div>
+      <div class="counter-card">
+        <i class="fas fa-bookmark counter-icon"></i>
+        <div class="counter-number" id="counter-works-count">0</div>
+        <div class="counter-label" data-i18n="statsPoems">Eser & Cilt</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BIOGRAPHY SECTION -->
+  <section class="section-padding" id="bio" style="background:var(--bg-secondary);">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge-tag" data-i18n="sectionBioTag">Hayat Hikâyesi</span>
+        <h2 class="section-title" data-i18n="sectionBioTitle">Anadolu Edebiyatına Adanmış Bir Ömür</h2>
+      </div>
+
+      <div class="timeline-container">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">1954</div>
+          <h3>Doğum ve İlk İlham</h3>
+          <p class="text-muted">27 Ağustos 1954 tarihinde Nevşehir Kozaklı Gerce köyünde doğdu. Genç yaşta halk şiiri, ozanlık ve hece ölçüsüyle tanıştı.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">1976 - 1980</div>
+          <h3>Marmara Üniversitesi & Gazetecilik</h3>
+          <p class="text-muted">İstanbul İktisadi ve Ticari İlimler Akademisi'ni tamamladı. Bizim Anadolu, Tercüman, Hergün ve Türkiye gazetelerinde muhabir ve istihbarat şefi olarak çalıştı.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">1994 - Günümüz</div>
+          <h3>ANASAN Kurucu Başkanlığı & Altın Kalem Ödülü</h3>
+          <p class="text-muted">ANASAN (Anadolu Şair, Yazar, Ozan, Bilim Adamları Birliği) kurucusu ve Genel Başkanı oldu. 2018 yılında Altın Kalem Ödülü'nü kazandı.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AWARDS SHOWCASE SECTION -->
+  <section class="section-padding" id="awards">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge-tag"><i class="fas fa-trophy"></i> Onur Ve Ödüller</span>
+        <h2 class="section-title">Sabit İnce Ödülleri & Başarıları</h2>
+      </div>
+
+      <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(300px, 1fr)); gap:2rem;">
+        <div class="glass-card" style="padding:2rem;">
+          <i class="fas fa-award text-gold" style="font-size:2.5rem; margin-bottom:1rem;"></i>
+          <h3 style="font-size:1.3rem; margin-bottom:0.5rem;">2018 Altın Kalem Ödülü</h3>
+          <p class="text-muted" style="font-size:0.95rem;">"Anadolu ve Azerbaycan Ağıtları" eseri ile yılın en iyi etnomüzikolojik araştırma ödülünü kazandı.</p>
+        </div>
+
+        <div class="glass-card" style="padding:2rem;">
+          <i class="fas fa-medal text-gold" style="font-size:2.5rem; margin-bottom:1rem;"></i>
+          <h3 style="font-size:1.3rem; margin-bottom:0.5rem;">Geleneksel Sabit İnce Ödülleri</h3>
+          <p class="text-muted" style="font-size:0.95rem;">2003 yılından bu yana edebiyata teşvik amacıyla genç şair ve yazarlara verilen saygın ödül organizasyonu.</p>
+        </div>
+
+        <div class="glass-card" style="padding:2rem;">
+          <i class="fas fa-star text-gold" style="font-size:2.5rem; margin-bottom:1rem;"></i>
+          <h3 style="font-size:1.3rem; margin-bottom:0.5rem;">Ozan & Bizim Kuşak Dereceleri</h3>
+          <p class="text-muted" style="font-size:0.95rem;">Şiir ve makale dallarında Ozan Dergisi ile Bizim Kuşak dergilerinde 3.'lük ve Mansiyon ödülleri.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- POETRY LIBRARY -->
+  <section class="section-padding" id="poetry" style="background:var(--bg-secondary);">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge-tag" data-i18n="sectionPoetryTag">Dijital Arşiv</span>
+        <h2 class="section-title" data-i18n="sectionPoetryTitle">Şiir Kütüphanesi</h2>
+      </div>
+
+      <div class="poetry-grid" id="poetry-grid"></div>
+    </div>
+  </section>
+
+  <!-- BOOKS & DOCUMENTS -->
+  <section class="section-padding" id="books">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge-tag" data-i18n="sectionBooksTag">Külliyat & Arşiv</span>
+        <h2 class="section-title" data-i18n="sectionBooksTitle">Kitaplar, Belgeler & Antolojiler</h2>
+      </div>
+
+      <div class="books-grid" id="books-grid"></div>
+    </div>
+  </section>
+
+  <!-- AUDIO & COMPOSITIONS -->
+  <section class="section-padding" id="audio" style="background:var(--bg-secondary);">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge-tag" data-i18n="sectionAudioTag">Müzik & Dinleti</span>
+        <h2 class="section-title" data-i18n="sectionAudioTitle">Besteler & Türkü Dinletisi</h2>
+      </div>
+
+      <div class="glass-card" style="padding:2.5rem; max-width:800px; margin:0 auto;">
+        <div id="playlist-list"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY & VIDEOS -->
+  <section class="section-padding" id="media">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge-tag" data-i18n="sectionMediaTag">Görsel Arşiv</span>
+        <h2 class="section-title" data-i18n="sectionMediaTitle">Fotoğraf & Video Galerisi</h2>
+      </div>
+
+      <div class="media-grid" id="media-grid"></div>
+    </div>
+  </section>
+
+  <!-- JOURNALISM -->
+  <section class="section-padding" id="journalism" style="background:var(--bg-secondary);">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge-tag" data-i18n="sectionJournalismTag">Basın & Makale</span>
+        <h2 class="section-title" data-i18n="sectionJournalismTitle">İnce Zımbalar & Köşe Yazıları</h2>
+      </div>
+
+      <div id="articles-grid" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(320px, 1fr)); gap:2rem;"></div>
+    </div>
+  </section>
+
+  <!-- GUESTBOOK -->
+  <section class="section-padding" id="guestbook">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge-tag" data-i18n="sectionGuestbookTag">Okur Duyguları</span>
+        <h2 class="section-title" data-i18n="sectionGuestbookTitle">Ziyaretçi Defteri</h2>
+      </div>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:3rem;">
+        <div class="glass-card" style="padding:2rem;">
+          <h3 style="margin-bottom:1.5rem;">Mesaj Bırakın</h3>
+          <form onsubmit="submitGuestbookComment(event)">
+            <div class="admin-form-group">
+              <label class="admin-label">Adınız / Unvanınız</label>
+              <input type="text" id="comment-name" class="admin-input" required>
+            </div>
+            <div class="admin-form-group">
+              <label class="admin-label">Düşünceleriniz</label>
+              <textarea id="comment-text" class="admin-textarea" required></textarea>
+            </div>
+            <button type="submit" class="btn-primary" style="width:100%;">Mesaj Gönder</button>
+          </form>
+        </div>
+
+        <div>
+          <div id="comments-feed"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="background:var(--bg-primary); border-top:1px solid var(--border-color); padding:3rem 0; text-align:center; color:var(--text-muted);">
+    <div class="container">
+      <p>© 2026 Sabit İnce Resmî Çok Dilli Edebiyat Portalı. (sabitince.webnode.com.tr & ANASAN Verileri Entegre Edilmiştir)</p>
+    </div>
+  </footer>
+
+  <!-- ADMIN CMS MODAL -->
+  <div class="modal-overlay" id="admin-modal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('admin-modal')"><i class="fas fa-times"></i></button>
+      
+      <h2 style="font-family:var(--font-heading); margin-bottom:0.5rem;" data-i18n="adminTitle">Yönetim Paneli (CMS & Veritabanı)</h2>
+      <p class="text-muted" style="margin-bottom:1.5rem;" data-i18n="adminDesc">Buradan siteye yeni şiir, kitap, belge, müzik, video ekleyebilir veya veritabanını yedekleyebilirsiniz.</p>
+
+      <div class="admin-tabs">
+        <button class="admin-tab-btn active" onclick="switchAdminTab('poem', this)" data-i18n="tabAddPoem">Şiir Ekle</button>
+        <button class="admin-tab-btn" onclick="switchAdminTab('book', this)" data-i18n="tabAddBook">Kitap/Belge Ekle</button>
+        <button class="admin-tab-btn" onclick="switchAdminTab('audio', this)" data-i18n="tabAddAudio">Müzik Ekle</button>
+        <button class="admin-tab-btn" onclick="switchAdminTab('media', this)" data-i18n="tabAddMedia">Foto/Video Ekle</button>
+        <button class="admin-tab-btn" onclick="switchAdminTab('db', this)" data-i18n="tabManageDb">Veritabanı Yedek</button>
+      </div>
+
+      <!-- TAB 1: ADD POEM -->
+      <div id="tab-poem" class="admin-tab-content">
+        <form onsubmit="handleAdminAddPoem(event)">
+          <div class="admin-form-group">
+            <label class="admin-label" data-i18n="lblPoemTitle">Şiir Başlığı</label>
+            <input type="text" id="admin-poem-title" class="admin-input" required>
+          </div>
+          <div class="admin-form-group">
+            <label class="admin-label" data-i18n="lblPoemCategory">Kategori</label>
+            <select id="admin-poem-category" class="admin-select">
+              <option value="tasavvuf">Tasavvuf & Aşk</option>
+              <option value="duygusal">Duygusal & Hasret</option>
+              <option value="vatan">Vatan & Memleket</option>
+              <option value="taslama">Taşlama & Hiciv</option>
+            </select>
+          </div>
+          <div class="admin-form-group">
+            <label class="admin-label" data-i18n="lblPoemBook">Kitap / Yıl</label>
+            <input type="text" id="admin-poem-book" class="admin-input" placeholder="Örn: Aşkın Ateşi, 1994">
+          </div>
+          <div class="admin-form-group">
+            <label class="admin-label" data-i18n="lblPoemContent">Şiir Metni</label>
+            <textarea id="admin-poem-content" class="admin-textarea" style="height:140px;" required></textarea>
+          </div>
+          <button type="submit" class="btn-primary" style="width:100%;" data-i18n="btnSaveContent">Veritabanına Kaydet</button>
+        </form>
+      </div>
+
+      <!-- TAB 2: ADD BOOK / DOC -->
+      <div id="tab-book" class="admin-tab-content" style="display:none;">
+        <form onsubmit="handleAdminAddBook(event)">
+          <div class="admin-form-group">
+            <label class="admin-label" data-i18n="lblBookTitle">Kitap / Belge Adı</label>
+            <input type="text" id="admin-book-title" class="admin-input" required>
+          </div>
+          <div class="admin-form-group">
+            <label class="admin-label" data-i18n="lblBookType">Türü (Şiir, Antoloji, Belge)</label>
+            <input type="text" id="admin-book-type" class="admin-input" placeholder="Örn: Antoloji & Araştırma">
+          </div>
+          <div class="admin-form-group">
+            <label class="admin-label" data-i18n="lblBookYear">Yayın Yılı / Sayfa</label>
+            <input type="text" id="admin-book-year" class="admin-input" placeholder="Örn: 2024 • 250 Sayfa">
+          </div>
+          <div class="admin-form-group">
+            <label class="admin-label" data-i18n="lblBookDesc">Açıklama</label>
+            <textarea id="admin-book-desc" class="admin-textarea" required></textarea>
+          </div>
+          <div class="admin-form-group">
+            <label class="admin-label" data-i18n="lblBookFileUrl">Kapak / Görsel Bağlantısı (URL)</label>
+            <input type="url" id="admin-book-url" class="admin-input" placeholder="https://...">
+          </div>
+          <button type="submit" class="btn-primary" style="width:100%;" data-i18n="btnSaveContent">Kaydet</button>
+        </form>
+      </div>
+
+      <!-- TAB 3: ADD AUDIO -->
+      <div id="tab-audio" class="admin-tab-content" style="display:none;">
+        <form onsubmit="handleAdminAddAudio(event)">
+          <div class="admin-form-group">
+            <label class="admin-label" data-i18n="lblAudioTitle">Beste / Türkü Adı</label>
+            <input type="text" id="admin-audio-title" class="admin-input" required>
+          </div>
+          <div class="admin-form-group">
+            <label class="admin-label" data-i18n="lblAudioAlbum">Albüm / Detay</label>
+            <input type="text" id="admin-audio-album" class="admin-input" placeholder="Örn: Bozkırın Nefesi">
+          </div>
+          <div class="admin-form-group">
+            <label class="admin-label" data-i18n="lblAudioDuration">Süre</label>
+            <input type="text" id="admin-audio-duration" class="admin-input" placeholder="03:45">
+          </div>
+          <button type="submit" class="btn-primary" style="width:100%;" data-i18n="btnSaveContent">Kaydet</button>
+        </form>
+      </div>
+
+      <!-- TAB 4: ADD MEDIA -->
+      <div id="tab-media" class="admin-tab-content" style="display:none;">
+        <form onsubmit="handleAdminAddMedia(event)">
+          <div class="admin-form-group">
+            <label class="admin-label" data-i18n="lblMediaTitle">Medya Başlığı</label>
+            <input type="text" id="admin-media-title" class="admin-input" required>
+          </div>
+          <div class="admin-form-group">
+            <label class="admin-label" data-i18n="lblMediaType">Medya Türü</label>
+            <select id="admin-media-type" class="admin-select">
+              <option value="photo">Fotoğraf (URL)</option>
+              <option value="video">YouTube Embed Video (URL)</option>
+            </select>
+          </div>
+          <div class="admin-form-group">
+            <label class="admin-label" data-i18n="lblMediaUrl">Görsel / Video Embed URL</label>
+            <input type="url" id="admin-media-url" class="admin-input" placeholder="https://..." required>
+          </div>
+          <button type="submit" class="btn-primary" style="width:100%;" data-i18n="btnSaveContent">Kaydet</button>
+        </form>
+      </div>
+
+      <!-- TAB 5: DB BACKUP -->
+      <div id="tab-db" class="admin-tab-content" style="display:none; text-align:center; padding:1.5rem 0;">
+        <p style="margin-bottom:1.5rem; color:var(--text-muted);">Veritabanınızı JSON formatında indirebilir veya daha önce indirdiğiniz bir yedeği yükleyebilirsiniz.</p>
+        <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+          <button class="btn-primary" onclick="exportDatabaseBackup()">
+            <i class="fas fa-download"></i> <span data-i18n="btnExportDb">Veritabanını İndir (JSON Yedeği)</span>
+          </button>
+          <label class="btn-outline" style="cursor:pointer;">
+            <i class="fas fa-upload"></i> <span data-i18n="btnImportDb">Veritabanı Yükle (JSON)</span>
+            <input type="file" accept=".json" onchange="importDatabaseBackup(event)" style="display:none;">
+          </label>
+        </div>
+        <div style="margin-top:2rem;">
+          <button class="btn-outline" style="border-color:#ef4444; color:#ef4444;" onclick="resetDatabaseToDefault()" data-i18n="btnResetDb">
+            Varsayılan Verilere Dön
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- POETRY MODAL -->
+  <div class="modal-overlay" id="poem-modal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('poem-modal')"><i class="fas fa-times"></i></button>
+      <div id="poem-modal-body"></div>
+    </div>
+  </div>
+
+  <!-- GENERIC MODAL -->
+  <div class="modal-overlay" id="generic-modal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('generic-modal')"><i class="fas fa-times"></i></button>
+      <div id="generic-modal-body"></div>
+    </div>
+  </div>
+
+  <!-- JavaScript Engines -->
+  <script src="translations.js"></script>
+  <script src="db.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
